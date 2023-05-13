@@ -7,11 +7,13 @@
 </div>
 
 # About
-This document is intended to serve as an addendum to the existing Wownero white
-paper (wownero.org/whitepaper.pdf) and attempts to provide a brief synopsis of the
+This document is intended to serve as an addendum to the existing ![Wownero white
+paper](https://wownero.org/whitepaper.pdf) and attempts to provide a brief synopsis of the
 core technologies Wownero (and Monero) utilize. A brief history of Wownero and a brief
 synopsis of core technologies will be provided. The Wownero blockchain, Proof-of-Work
 algorithm, and privacy enhancing features will be summarized in respective sections.
+
+### ![Document Link](https://github.com/RootInit/WowNote/blob/368b32efdaffdf44fd233261f46124510c173050/whitepaper.pdf)
 
 # Contributing
 Because this was written as what was susposed to be a 2-3 page paper for a college assignment 

@@ -1,0 +1,229 @@
+% ========================================== %
+% White Paper on the Wownero Cryptocurrency
+% Written For Class Assignment
+% ========================================== %
+
+\documentclass[a4paper,11pt,oneside,onecolumn]{article}
+\usepackage[portrait, margin=3cm]{geometry}
+
+% Modify page color
+% ========================================== %
+\usepackage[svgnames]{xcolor}
+\definecolor{doc_purple}{HTML}{590059}
+\definecolor{doc_piss}{HTML}{FFFFB2}
+\pagecolor{doc_piss}
+\color{doc_purple}
+% ========================================== %
+
+
+% Modify Footnotes
+% ========================================== %
+% Anchor footnotes to bottom of page
+\usepackage[bottom]{footmisc}
+% Use dagger symbol for footnotes
+\renewcommand*{\thefootnote}{\textdagger\arabic{footnote}}
+% Make footnote index reset per page
+\usepackage{perpage}
+\MakePerPage{footnote}
+% Adjust footnote rule line
+\renewcommand{\footnoterule}{
+  \kern -3pt
+  \hrule width 5cm height 0.5pt
+  \kern 2pt
+}
+% ========================================== %
+
+% Bibliography Setup
+% ========================================== %
+\newcommand{\citecountenabled}{false}
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=none,
+    citecounter=\citecountenabled,
+    backref=\citecountenabled
+]{biblatex} 
+\addbibresource{sources.bib}
+% Make citation markers smaller
+\let\oldcite\cite
+\renewcommand*\cite[1]{{\scriptsize\oldcite{#1}}}
+% Make Bibliography font smaller
+\renewcommand*{\bibfont}{\small}
+\iffalse
+\renewbibmacro*{pageref}{\\\textsubscript{
+    \printtext{Cited \arabic{citecounter} time\ifnumgreater{\value{citecounter}}{1}{s}{}}%
+    \setunit{\addspace} on page\ifnumgreater{\value{pageref}}{1}{s}{}%
+    \printlist[pageref][-\value{listtotal}]{pageref}}
+}
+\fi
+% ========================================== %
+
+% In text links (such as citations and footnotes)
+\usepackage{hyperref}
+
+
+% Figures and captions
+% ========================================== %
+\usepackage{graphicx}
+\graphicspath{{./figs}}
+\usepackage[justification=centering]{caption}
+% Allow blocking float on figures
+\usepackage{float}
+% ========================================== %
+
+
+% Drawing and image positioning
+% ========================================== %
+\usepackage{tikz}
+% ========================================== %
+
+
+% Mathematical Symbols & Forumlas
+% ========================================== %
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+% ========================================== %
+
+
+% Modify Itemize and Enumerate
+\usepackage{enumitem}
+% ========================================== %
+% Reduce List spacing
+\setlist{noitemsep}
+% or \setlist{\nosep} to remove space around list too
+% ========================================== %
+
+
+% Prevent \url's from extending past margin
+\usepackage{xurl}
+
+
+% Redact sensitive text
+% ========================================== %
+% Switch the comments to toggle censor
+% \usepackage{censor}
+\newcommand\censor{}
+% ========================================== %
+
+
+% For lettered sections
+%\renewcommand{\thesubsection}{\Alph{subsection}}
+
+
+% Setup Title
+% ========================================== %
+\newcommand{\doctitle}{WOWNote v 6.9}
+\title{\doctitle}
+
+\newcommand{\authorname}{\censor{RootInit}}
+\newcommand{\authoremail}{\censor{init.cx}}
+\author{\authorname\\\authoremail}
+%\author{\censor\authorname \\ \censor\authoremail}
+%\newcommand{\authoremail}{email@email.com}
+
+\newcommand{\docdate}{\today}
+\date{\censor\docdate}
+% ========================================== %
+
+\begin{document}
+
+% Header on each page
+% ========================================== %
+%\pagestyle{fancy}
+%\setlength{\headheight}{15pt}
+%\fancyhead[L]{003128756}
+%\fancyhead[C]{\authorname}
+%\fancyhead[R]{\docdate}
+% ========================================== %
+
+% Print table of contents
+% ========================================== %
+%\tableofcontents
+% ========================================== %
+
+% Print title block
+% ========================================== %
+\maketitle
+% ========================================== %
+
+% Document Sections
+% ========================================== %
+\input{Sections/introduction}
+
+\input{Sections/history}
+
+\input{Sections/blockchain}
+
+\input{Sections/proof_of_work}
+
+\input{Sections/privacy}
+
+\input{Sections/conclusion}
+% ========================================== %
+
+% Print Bibiligraphy Pages
+% ========================================== %
+%\pagebreak
+\printbibliography
+% ========================================== %
+
+
+% Wownerochan image in bottom right corner
+% ========================================== %
+\tikz[remember picture, overlay] \node[anchor=south east] at (current page.south east) {
+    \includegraphics[width=4cm]{wownerochan}
+};
+% ========================================== %
+
+\end{document}
+
+% Notes and Examples
+% ========================================== %
+\iffalse
+
+% Fandy Header
+% ========================================== %
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\fancyhead[L]{003128756}
+\fancyhead[C]{\authorname}
+\fancyhead[R]{\docdate}
+% ========================================== %
+
+% Pad to end of page
+\vspace*{\fill}
+
+% Numbered List
+% ========================================== %
+\begin{enumerate}
+    \item list item
+\end{enumerate}
+% ========================================== %
+
+% Draw line across full page
+\noindent\hrulefill
+
+% Show an image centered with caption
+% ========================================== %
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=300px]{figurefile}
+    \caption{
+        A very important diagram\\
+        Image source \texttt{init.cx} credit \emph{``rootinit''}
+    }
+    \label{fig:labelhere}
+\end{figure}
+% ========================================== %
+
+\begin{align*}
+    y^2 &= x^3+486662*x^2+x\\
+    y &= -sqrt(x) sqrt(x^2 + 486662 x + 1)
+    \end{align*}
+
+    
+\fi
+% END
